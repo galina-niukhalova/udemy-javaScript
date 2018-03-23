@@ -7,3 +7,9 @@
 
 ## Topics covered
 - JS: Basic
+- JS: Objects and Functions
+  - Inheritance
+  - Callback functions
+  - IIFE
+  - Closures
+- ES6 / ES2015
