@@ -6,10 +6,28 @@
 - https://www.udemy.com/the-complete-javascript-course/learn/v4/overview
 
 ## Topics covered
-- JS: Basic
-- JS: Objects and Functions
+### JS: Basic
+### JS: Objects and Functions
   - Inheritance
   - Callback functions
   - IIFE
   - Closures
-- ES6 / ES2015
+### ES6 / ES2015
+  - **Const and let**
+    - Have block scoped.
+    - Variables with 'Const' declaration can't change the value.
+    - We should declare a variable and after this use it. Otherwise it will be an error. [in ES5 it will ne undefined].
+  - **Strings**
+    - Template literals: 
+      `` `String ${variable} ...` ``
+    - Methods: startWith, endWith, includes, repeat
+  - **Arrow functions**
+    - (param => one line of code )
+    - ((param1, param2) => one line of code)
+    - (param => { code })
+    - arrow functions don't have his own this
+  - **Destructuring**
+    - `[variable1, variable2] = ['val1', 'val2']`
+    - `{variable1, variable2} = {variable1: 'val1', variable2: 'val2'}`
+    - `{key1: variable1, key2: variable2} = {key1: 'val1', key2: 'val2'}`
+    
