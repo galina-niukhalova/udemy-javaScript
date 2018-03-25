@@ -50,4 +50,6 @@
      - map.has(key)
      - looping
   - **Classes and Subclasses**
-   
+ ### Babel
+ 
+ ![certificate](https://github.com/galina-niukhalova/udemy-javaScript/blob/master/certificate.jpg)
