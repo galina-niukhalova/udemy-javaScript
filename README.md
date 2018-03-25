@@ -30,4 +30,24 @@
     - `[variable1, variable2] = ['val1', 'val2']`
     - `{variable1, variable2} = {variable1: 'val1', variable2: 'val2'}`
     - `{key1: variable1, key2: variable2} = {key1: 'val1', key2: 'val2'}`
-    
+  - **Array**
+    - transform NodeList to Array: Array.from(NodeList)
+    - for(let el of array) {} - can use break or continue
+    - findIndex
+    - find
+  - **Spread operator (...)**
+    - for joining arrays / NodeLists
+    - for pass array into a function as arguments
+  - **Function's arguments**
+    - use function(...arg) => transform arguments into an array
+    - default arguments: function(arg1, arg2, arg3='')
+  - **New structure: map**
+     - new Map();
+     - map.set(key, value)
+     - map.get(key)
+     - map.size
+     - map.delete(key)
+     - map.has(key)
+     - looping
+  - **Classes and Subclasses**
+   
