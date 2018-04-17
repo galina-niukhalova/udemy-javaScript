@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Asynchronous JavaScript</title>
+</head>
+
+<body>
+    <h1>Asynchronous JavaScript</h1>
+    <script>
+        //*********************
+        // synchronous = one after another, line by line
+        //*********************
+
+        // const second = () => {
+        //     console.log('second');
+        // }
+
+        // const first = () => {
+        //     console.log('Hey there');
+        //     second();
+
+        //     console.log('The end');
+        // };
+
+        // first();
+
+        //*********************
+        // asynchronous = some code executed later
+        //*********************
+
+        // const second_asyn = () => {
+        //     setTimeout(() => {
+        //         console.log('Async')
+        //     }, 2000);
+        //     // 2000ms = 2s
+        // };
+        // const first_asyn = () => {
+        //     console.log('Hey there');
+        //     second_asyn();
+
+        //     console.log('The end');
+        // };
+
+        // first_asyn();
+
+
+
+
+        //*********************
+        // Loading data from remote server
+        //*********************
+        // function getRecipe() {
+        //     setTimeout(() => {
+        //         const recipeID = [523, 883, 432, 974];
+        //         console.log(recipeID);
+
+        //         setTimeout((id) => {
+        //             const recipe = {title: 'Fresh tomato pasta', publisher: 'Jonas'};
+        //             console.log(`${id}: ${recipe.title}`);
+
+        //             setTimeout( publisher => {
+        //                 
+        //                 console.log(recipe);
+
+        //             }, 1500, recipe.publisher);
+
+        //         }, 1500, recipeID[2])
+        //     }, 1500);
+        // }
+
+        // getRecipe();
+
+        // promices = object that keeps track about whether a certain event has happened already or not
+        // and what happends next
+        // resolve = callback function, if promise is success
+        // reject = callback function, if promise is failed
+        const getIDs = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve([523, 883, 432, 974]);
+            }, 1500);
+        });
+
+        const getRecipe = recipeID => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const recipe = { title: 'Fresh tomato pasta', publisher: 'Jonas', id: recipeID };
+                    resolve(recipe);
+                }, 1500);
+            });
+        };
+
+        const getRelated = publisher => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const recipe = { title: 'Italian pizza', publisher };
+                    resolve(recipe);
+                }, 1500);
+            });
+        };
+
+        // IDs - result of success promice 
+        // getIDs
+        //     .then(IDs => {
+        //         return getRecipe(IDs[2]); //promise
+        //     })
+        //     .then(recipe => {
+        //         console.log(recipe);
+        //         return getRelated(recipe.publisher);
+        //     })
+        //     .then(relRecipe => {
+        //         console.log(relRecipe);
+        //     })
+        //     .catch (error => {
+        //     console.log(error);
+        // });
+
+        // async function always will return a promise
+        // async function getRecipiesAW() {
+        //     // will wait until getIDs will be executed
+        //     const IDs = await getIDs;
+        //     const recipe = await getRecipe(IDs[2]);
+        //     console.log(recipe);
+
+        //     const relRecipe = await getRelated(recipe.publisher);
+        //     console.log(relRecipe);
+
+        //     return recipe;
+        // }
+
+        // getRecipiesAW()
+        // .then(recipe => {
+        //     console.log(recipe);
+        // });
+
+
+        // AJAX - asynchronous JS and XML
+        // alows us to asyn comminucate with remote server (different API:
+        // own API, google API, Weather data, movie data, youtube data, etc)
+
+        // API - application programming interface
+
+
+        // error:  No 'Access-Control-Allow-Origin' header is present on the requested resource
+        // same origin policy in JS: prevent to make a request to different domain
+        // solution of this problem is Cross Origin Resource Sharing (CORS)
+        // developers of API should implement CORS on their server
+
+        // if not developers proxy the request through their own server
+        // by doing requist on their own server and sent a data to the browser
+
+        // if we don't have a server we can use crossorigin.me
+        // function getWeather(woeid) {
+        //     fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`)
+        //     .then(result => {
+        //         return result.json(); // return promise
+        //     })
+        //     .then(data => { 
+        //         const today = data.consolidated_weather[0];
+        //         console.log(`Temperatures today in ${data.title} stay between ${today.min_temp} and ${today.max_temp}.`);
+        //     })
+        //     .catch(error => console.log(error));
+        // }
+        // getWeather(2487956);
+        // getWeather(44418);
+
+        async function getWeather(woeid) {
+            try {
+                const result = await fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`);
+                const data = await result.json();
+
+                const today = data.consolidated_weather[0];
+                console.log(`Temperatures today in ${data.title} stay between ${today.min_temp} and ${today.max_temp}.`);
+                return data;
+            }
+            catch (error) {
+                console.log(error)
+            }
+        }
+
+        // async return a promice
+        getWeather(2487956)
+        .then(result => console.log(result));
+
+    </script>
+</body>
+
+</html>
