@@ -50,6 +50,13 @@
      - map.has(key)
      - looping
   - **Classes and Subclasses**
+  - **Promises**
+    - states: pending (before the event is happened), settled/resolved (after the event is happened) 
+  - **Async functions and await**
+  - **AJAX request**
+    - asynchronous JS and XML
+    - alows us to asyn comminucate with a remote server
+    - return a promise
  ### Babel
  
  ![certificate](https://github.com/galina-niukhalova/udemy-javaScript/blob/master/certificate.jpg)
