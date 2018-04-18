@@ -58,6 +58,6 @@
     - alows us to asyn comminucate with a remote server
     - return a promise
  ### Webpack
-    - babel
+    - Babel
  
  ![certificate](https://github.com/galina-niukhalova/udemy-javaScript/blob/master/certificate.jpg)
