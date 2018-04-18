@@ -57,6 +57,7 @@
     - asynchronous JS and XML
     - alows us to asyn comminucate with a remote server
     - return a promise
- ### Babel
+ ### Webpack
+    - babel
  
  ![certificate](https://github.com/galina-niukhalova/udemy-javaScript/blob/master/certificate.jpg)
